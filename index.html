@@ -365,10 +365,18 @@
                 <img class="img-fluid rounded mb-5" src="img/portfolio/watermelon_planet.png" alt="">
                 <!-- Portfolio Modal - Text -->
                 <p class="mb-5">不知道為甚麼變成星球的西瓜</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
-                  Close Window
-                </button>
+                <div class="d-flex flex-column">
+                  <div class="d-flex flex-row justify-content-center">
+                    <button type="button" class="btn btn-info mb-3" onclick="changePassword()">
+                      給西瓜一個👍
+                      <span id="good-counter" class="badge badge-light">0</span>
+                    </button>
+                  </div>
+                  <button class="btn btn-primary mx-auto " href="#" data-dismiss="modal">
+                    <i class="fas fa-times fa-fw"></i>
+                    Close Window
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -390,6 +398,19 @@
 
   <!-- Custom scripts for this template -->
   <script src="js/freelancer.min.js"></script>
+    
+  <script>
+  function changePassword(){
+      let number = 87878787
+      let xhttp = new XMLHttpRequest()
+      xhttp.open('GET', 'https://sirla-chatbot.herokuapp.com/get_number?number=' + number)
+      xhttp.withCredentials = true;
+      xhttp.send()
+      counter = parseInt($("#good-counter").text())
+      counter += 1
+      $("#good-counter").text(counter)
+  }
+  </script>
 
 </body>
 
